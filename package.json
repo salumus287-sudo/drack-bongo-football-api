@@ -1,1 +1,12 @@
-
+{
+"name": "drack-bongo-football-api",
+"version": "1.0.0",
+"description": "DRACK BONGO FOOTBALL API - NBC Premier League",
+"main": "server.js",
+"scripts": {
+"start": "node server.js"
+},
+"dependencies": {
+"express": "^5.1.0"
+}
+}
