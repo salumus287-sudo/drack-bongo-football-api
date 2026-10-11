@@ -1,12 +1,70 @@
-{
-  "name": "drack-bongo-football-api",
-  "version": "1.0.0",
-  "description": "DRACK BONGO FOOTBALL API - NBC Premier League",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^5.1.0"
-  }
-}
+const express = require("express");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json({
+    name: "DRACK BONGO FOOTBALL API",
+    league: "NBC Premier League Tanzania",
+    status: "online",
+    version: "1.0.0",
+    endpoints: [
+      "/api",
+      "/api/fixtures",
+      "/api/results",
+      "/api/standings",
+      "/api/teams"
+    ],
+    note: "API imeanza. Chanzo cha data za ligi bado kinaunganishwa."
+  });
+});
+
+app.get("/api", (req, res) => {
+  res.json({
+    success: true,
+    name: "DRACK BONGO FOOTBALL API",
+    league: "NBC Premier League Tanzania"
+  });
+});
+
+app.get("/api/fixtures", (req, res) => {
+  res.json({
+    success: true,
+    league: "NBC Premier League Tanzania",
+    data: [],
+    message: "Ratiba bado haijaunganishwa."
+  });
+});
+
+app.get("/api/results", (req, res) => {
+  res.json({
+    success: true,
+    league: "NBC Premier League Tanzania",
+    data: [],
+    message: "Matokeo bado hayajaunganishwa."
+  });
+});
+
+app.get("/api/standings", (req, res) => {
+  res.json({
+    success: true,
+    league: "NBC Premier League Tanzania",
+    data: [],
+    message: "Jedwali bado halijaunganishwa."
+  });
+});
+
+app.get("/api/teams", (req, res) => {
+  res.json({
+    success: true,
+    league: "NBC Premier League Tanzania",
+    data: []
+  });
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`DRACK BONGO FOOTBALL API running on port ${PORT}`);
+});
